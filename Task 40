@@ -1,0 +1,37 @@
+namespace Task_40
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Player player = new Player('$', 10, 5);
+
+            Drawer drawer = new Drawer();
+
+            drawer.DrawPlayer(player.PlayerType, player.PlayerPositionX, player.PlayerPositionY);
+        }
+    }
+
+    class Player
+    {
+        public char PlayerType { get; private set; }
+        public int PlayerPositionX { get; private set; }
+        public int PlayerPositionY { get; private set; }
+
+        public Player(char playerType, int playerPositionX, int playerPositionY)
+        {
+            PlayerType = playerType;
+            PlayerPositionX = playerPositionX;
+            PlayerPositionY = playerPositionY;
+        }
+    }
+
+    class Drawer
+    {
+        public void DrawPlayer(char Type, int cursorPositionX, int cursorPositionY)
+        {
+            Console.SetCursorPosition(cursorPositionX, cursorPositionY);
+            Console.Write(Type);
+        }
+    }
+}
